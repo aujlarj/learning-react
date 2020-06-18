@@ -3,33 +3,36 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 1,
-    tags: [],
   };
 
   styles = {
-    fontSize: 10,
+    fontSize: 15,
     fontWeight: "bold",
   };
 
-  renderTags() {
-    if (this.state.tags.length === 0) return <p> No Tags! </p>;
+  // constructor() {
+  //   super();
+  //   this.handleIncrement = this.handleIncrement.bind(this);
+  // }
 
-    return (
-      <ul>
-        {" "}
-        {this.state.tags.map((tag) => (
-          <li key={tag}>{tag}</li>
-        ))}{" "}
-      </ul>
-    );
-  }
+  handleIncrement = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
   render() {
     let classes = this.getBadgeClasses();
 
     return (
       <div>
-        {this.state.tags.length === 0 && "another tag!"}
-        {this.renderTags()}
+        <span style={this.styles} className={classes}>
+          {this.formatCount()}
+        </span>
+        <button
+          onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
       </div>
     );
   }
