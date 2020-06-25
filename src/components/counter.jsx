@@ -15,6 +15,14 @@ class Counter extends Component {
     console.log("Counter - Mounted");
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log("prevProps", prevProps);
+    console.log("prevState", prevState);
+    if (prevProps.counter.value !== this.props.counter.value) {
+      console.log("Ajax call and get new data from server");
+    }
+  }
+
   render() {
     console.log("Counter - Rendered");
     let classes = this.getBadgeClasses();
