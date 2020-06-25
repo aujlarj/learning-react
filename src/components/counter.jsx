@@ -6,7 +6,17 @@ class Counter extends Component {
     fontStyle: "bold",
   };
 
+  constructor() {
+    super();
+    console.log("Counter - constructor");
+  }
+
+  componentDidMount() {
+    console.log("Counter - Mounted");
+  }
+
   render() {
+    console.log("Counter - Rendered");
     let classes = this.getBadgeClasses();
     // console.log(this.props);
 

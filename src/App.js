@@ -5,6 +5,15 @@ import Navbar from "./components/navbar";
 import Counters from "./components/counters";
 
 class App extends Component {
+  constructor() {
+    super();
+    console.log("App - Constructor");
+  }
+
+  componentDidMount() {
+    console.log("App - Mounted");
+  }
+
   state = {
     counters: [
       { id: 1, value: 3 },
@@ -42,6 +51,7 @@ class App extends Component {
   };
 
   render() {
+    console.log("App - Rendered");
     return (
       <React.Fragment>
         <Navbar

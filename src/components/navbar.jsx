@@ -17,9 +17,14 @@ import React, { Component } from "react";
 // }
 
 const NavBar = ({ totalCounters }) => {
+  console.log("NavBar - Rendered");
+
+  // cannot use lifecycle hooks like mount, update, unmount
+  // becuase this is not a class component
+
   return (
-    <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="#">
+    <nav className="navbar navbar-light bg-light">
+      <a className="navbar-brand" href="#">
         Navbar
         <span className="badge badge-pill badge-secondary m-2">
           {totalCounters}
