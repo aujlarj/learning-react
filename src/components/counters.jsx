@@ -2,19 +2,19 @@ import React, { Component } from "react";
 import Counter from "./counter";
 
 class Counters extends Component {
-  constructor() {
-    super();
-    console.log("Counter(s) - constructor");
-  }
+  // constructor() {
+  //   super();
+  //   console.log("Counter(s) - constructor");
+  // }
 
-  componentDidMount() {
-    console.log("Counter(s) - Mounted");
-  }
+  // componentDidMount() {
+  //   console.log("Counter(s) - Mounted");
+  // }
 
   render() {
     const { onReset, counters, onDelete, onIncrement } = this.props;
 
-    console.log("Counter(s) - Rendered");
+    // console.log("Counter(s) - Rendered");
 
     return (
       <div>
@@ -30,6 +30,7 @@ class Counters extends Component {
             counter={counter} // incapsulate id and value
             onDelete={this.props.onDelete}
             onIncrement={this.props.onIncrement}
+            onDecrement={this.props.onDecrement}
           ></Counter>
         ))}
       </div>

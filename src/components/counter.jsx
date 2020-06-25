@@ -6,51 +6,62 @@ class Counter extends Component {
     fontStyle: "bold",
   };
 
-  constructor() {
-    super();
-    console.log("Counter - constructor");
-  }
+  // constructor() {
+  //   super();
+  //   console.log("Counter - constructor");
+  // }
 
-  componentDidMount() {
-    console.log("Counter - Mounted");
-  }
+  // componentDidMount() {
+  //   console.log("Counter - Mounted");
+  // }
 
-  componentWillUnmount() {
-    console.log("Counter - Unmounted");
-    // gives us opputunity to cleanup
-    // like handewl timers, listeners, avoid memory leaks, etc
-  }
+  // componentWillUnmount() {
+  //   console.log("Counter - Unmounted");
+  //   // gives us opputunity to cleanup
+  //   // like handewl timers, listeners, avoid memory leaks, etc
+  // }
 
-  componentDidUpdate(prevProps, prevState) {
-    // console.log("prevProps", prevProps);
-    // console.log("prevState", prevState);
-    if (prevProps.counter.value !== this.props.counter.value) {
-      console.log("Ajax call and get new data from server");
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   // console.log("prevProps", prevProps);
+  //   // console.log("prevState", prevState);
+  //   if (prevProps.counter.value !== this.props.counter.value) {
+  //     console.log("Ajax call and get new data from server");
+  //   }
+  // }
 
   render() {
-    console.log("Counter - Rendered");
+    // console.log("Counter - Rendered");
     let classes = this.getBadgeClasses();
     // console.log(this.props);
 
     return (
-      <div>
-        <span style={this.styles} className={classes}>
-          {this.formatCount()}
-        </span>
-        <button
-          className="btn btn-dark"
-          onClick={() => this.props.onIncrement(this.props.counter)}
-        >
-          Increment
-        </button>
-        <button
-          className="btn btn-danger btn-sm m-2"
-          onClick={() => this.props.onDelete(this.props.counter.id)}
-        >
-          Delete
-        </button>
+      <div className="row">
+        <div className="col-1">
+          <span style={this.styles} className={classes}>
+            {this.formatCount()}
+          </span>
+        </div>
+        <div className="col">
+          <button
+            className="btn btn-dark btn-sm"
+            onClick={() => this.props.onIncrement(this.props.counter)}
+          >
+            +
+          </button>
+          <button
+            className="btn btn-dark btn-sm m-2"
+            onClick={() => this.props.onDecrement(this.props.counter)}
+            disabled={this.props.counter.value === 0 ? "disabled" : ""}
+          >
+            -
+          </button>
+          <button
+            className="btn btn-danger btn-sm"
+            onClick={() => this.props.onDelete(this.props.counter.id)}
+          >
+            X
+          </button>
+        </div>
       </div>
     );
   }

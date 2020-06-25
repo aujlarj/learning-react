@@ -17,7 +17,7 @@ import React, { Component } from "react";
 // }
 
 const NavBar = ({ totalCounters }) => {
-  console.log("NavBar - Rendered");
+  // console.log("NavBar - Rendered");
 
   // cannot use lifecycle hooks like mount, update, unmount
   // becuase this is not a class component

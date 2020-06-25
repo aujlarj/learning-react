@@ -5,18 +5,18 @@ import Navbar from "./components/navbar";
 import Counters from "./components/counters";
 
 class App extends Component {
-  constructor() {
-    super();
-    console.log("App - Constructor");
-  }
+  // constructor() {
+  //   super();
+  //   console.log("App - Constructor");
+  // }
 
-  componentDidMount() {
-    console.log("App - Mounted");
-  }
+  // componentDidMount() {
+  //   console.log("App - Mounted");
+  // }
 
   state = {
     counters: [
-      { id: 1, value: 3 },
+      { id: 1, value: 0 },
       { id: 2, value: 0 },
       { id: 3, value: 0 },
       { id: 4, value: 0 },
@@ -41,6 +41,15 @@ class App extends Component {
     // this.setState({ value: this.state.counters.value - 1 });
   };
 
+  handleDecrement = (counter) => {
+    const newCounters = [...this.state.counters];
+    const index = newCounters.indexOf(counter);
+    console.log(index);
+    newCounters[index] = { ...counter };
+    newCounters[index].value--;
+    this.setState({ counters: newCounters });
+  };
+
   handleReset = () => {
     // would give us new array of counters
     const resettedCounters = this.state.counters.map((c) => {
@@ -51,7 +60,7 @@ class App extends Component {
   };
 
   render() {
-    console.log("App - Rendered");
+    // console.log("App - Rendered");
     return (
       <React.Fragment>
         <Navbar
@@ -63,6 +72,7 @@ class App extends Component {
             onReset={this.handleReset}
             onDelete={this.handleDelete}
             onIncrement={this.handleIncrement}
+            onDecrement={this.handleDecrement}
           />
         </main>
       </React.Fragment>
