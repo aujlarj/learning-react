@@ -15,9 +15,15 @@ class Counter extends Component {
     console.log("Counter - Mounted");
   }
 
+  componentWillUnmount() {
+    console.log("Counter - Unmounted");
+    // gives us opputunity to cleanup
+    // like handewl timers, listeners, avoid memory leaks, etc
+  }
+
   componentDidUpdate(prevProps, prevState) {
-    console.log("prevProps", prevProps);
-    console.log("prevState", prevState);
+    // console.log("prevProps", prevProps);
+    // console.log("prevState", prevState);
     if (prevProps.counter.value !== this.props.counter.value) {
       console.log("Ajax call and get new data from server");
     }
